@@ -4,11 +4,11 @@ port = <%=
 
 port = p("port")
 
-if port < 1024 or port > 4000
+if (port == 1024 or port == 7999)
   raise "Invalid port number"
 end
 
-if (port.eql? 8080) || (port.eql? 8081)
+if not (port.eql? 8080) 
   raise "Wrong port number"
 end
 
