@@ -6,7 +6,7 @@ templates:
   config.erb: tmp/config.yml
 
 packages:
-- ruby
+- ruby-2.7
 
 properties:
   port:
