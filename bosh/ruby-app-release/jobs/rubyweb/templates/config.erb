@@ -1,16 +1,15 @@
--
+---
+port: <%=
 
-port = <%=
+      port = p("port")
 
-port = p("port")
+      if (port == 1024 or port == 7999)
+        raise "Invalid port number"
+      end
 
-if (port == 1024 or port == 7999)
-  raise "Invalid port number"
-end
+      if not (port.eql? 8080) 
+        raise "Wrong port number"
+      end
 
-if not (port.eql? 8080) 
-  raise "Wrong port number"
-end
-
-port
-%>
+      port
+      %>
