@@ -3,10 +3,10 @@ require "pstore"
 require 'yaml'
 
 configure do
-	# config = YAML.load_file('/var/vcap/jobs/rubyweb/cfg/config.yml')
+	config = YAML.load_file('/var/vcap/jobs/rubyweb/cfg/config.yml')
 
 	set :bind, '0.0.0.0'
-    set :port, 8181
+  set :port, config["port"]
 
 	class Item
 		attr_reader :name, :type
@@ -20,7 +20,7 @@ configure do
 	it1 = Item.new("Pilot Frixion", "pen")
 	it2 = Item.new("GummyBear", "chewing gum")
 	Item = PStore.new("items.pstore")
-	
+
 	Item.transaction do
 		Item[it1.type] = it1.name
 		Item[it2.type] = it2.name
